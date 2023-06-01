@@ -1,0 +1,15 @@
+@use '../utilities/variables' as v;
+
+#back-arrow {
+    width: 35px;
+    margin: 0 25px;
+
+    font-size: 35px;
+    cursor: pointer;
+
+    color: v.$first-background-color;
+
+    &:hover {
+        color: v.$fourth-background-color;
+    }
+}

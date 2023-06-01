@@ -1,0 +1,24 @@
+header {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        margin: 0 auto;
+        color: transparent;
+        font-size: 50px;
+        font-weight: bold;
+    
+        background-image: url("./src/assets/background-puzzleshome-logo.png");
+        background-size: cover;
+        background-clip: text;
+        -webkit-background-clip: text;
+        background-position-y: center;
+    }
+}
