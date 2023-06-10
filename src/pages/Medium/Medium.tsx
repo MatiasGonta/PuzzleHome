@@ -1,4 +1,5 @@
-import { Navbar, PuzzleTable } from "../../components"
+import { Navbar, PuzzleTable } from "@/components"
+import { mediumPieces, mediumPuzzleCompleted } from "./data";
 
 export interface MediumInterface {}
 
@@ -7,7 +8,7 @@ const Medium: React.FC<MediumInterface> = () => {
   return (
     <div>
       <Navbar />
-      <PuzzleTable puzzleNum={2} />
+      <PuzzleTable puzzlePieces={mediumPieces} puzzleCompleted={mediumPuzzleCompleted} />
     </div>
   )
 }

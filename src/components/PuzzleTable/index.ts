@@ -1,3 +1,2 @@
-export * from './PieceContainer';
-export * from './PuzzleContainer';
+export * from './Piece';
 export { default as PuzzleTable } from './PuzzleTable';

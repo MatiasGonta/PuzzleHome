@@ -1,4 +1,5 @@
-import { Navbar, PuzzleTable } from "../../components"
+import { Navbar, PuzzleTable } from "@/components";
+import { hardPieces, hardPuzzleCompleted } from "./data";
 
 export interface HardInterface {}
 
@@ -7,7 +8,7 @@ const Hard: React.FC<HardInterface> = () => {
   return (
     <div>
       <Navbar />
-      <PuzzleTable puzzleNum={3} />
+      <PuzzleTable puzzlePieces={hardPieces} puzzleCompleted={hardPuzzleCompleted} />
     </div>
   )
 }

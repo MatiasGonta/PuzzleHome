@@ -61,25 +61,17 @@
             height: 100px;
         }
 
-        .piece-img {
+        // .piece-img {
+        //     width: 100px;
+        //     height: 100px;
+        //     padding: 1px;
+        //     cursor: pointer;
+        // }
+        
+        img {
             width: 100px;
             height: 100px;
-            padding: 1px;
             cursor: pointer;
-        }
-
-        img {
-            width: 300px;
-            height: 450px;
-
-            &:hover {
-                border-left: 10px solid v.$fourth-background-color;
-                border-bottom: 10px solid v.$fourth-background-color;
-            }
-        }
-
-        &:hover {
-            color: v.$fourth-background-color;
         }
     }
 }
