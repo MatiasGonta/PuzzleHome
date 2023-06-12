@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home, Easy, Medium, Hard, Error } from './pages';
+import { TimerProvider } from './context';
 
 export interface AppInterface {}
 
@@ -26,7 +27,9 @@ const router = createBrowserRouter([
 const App:React.FC<AppInterface> = () => {
 
   return (
-    <RouterProvider router={router} />
+    <TimerProvider>
+      <RouterProvider router={router} />
+    </TimerProvider>
   )
 }
 

@@ -10,7 +10,11 @@ export interface PuzzleTableInterface {
 }
 
 const PuzzleTable: React.FC<PuzzleTableInterface> = ({ puzzlePieces, puzzleCompleted }) => {
-  const { pieces, isPuzzleCompleted, handleDragEnd, handleDragStart } = usePieces({puzzlePieces});
+  const { pieces, setPieces, isPuzzleCompleted, handleDragEnd, handleDragStart } = usePieces({puzzlePieces});
+
+  const handleResetPuzzle = () => {
+    setPieces(puzzlePieces);
+  }
 
   return (
     <main id="puzzleContainer">
@@ -27,7 +31,7 @@ const PuzzleTable: React.FC<PuzzleTableInterface> = ({ puzzlePieces, puzzleCompl
             {
               pieces.map((piece:Image) => <Piece pieceProps={piece} key={piece.id} />)
             }
-            {isPuzzleCompleted ? (<PuzzleSuccessMessage props={puzzleCompleted} />) : (<></>)}
+            {isPuzzleCompleted ? (<PuzzleSuccessMessage props={puzzleCompleted} onPuzzleReset={handleResetPuzzle} />) : (<></>)}
           </SortableContext>
         </section>
       </DndContext>

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 export interface TimerContextInterface {
+  isRunning: boolean;
   seconds: number;
   minutes: number;
   hours: number;
   handleStartTimer: () => void;
-  handleEndTimer: () => void;
+  handleStopTimer: () => void;
   handleResetTimer: () => void;
 }
 
@@ -13,16 +14,17 @@ interface TimerProviderInterface {
   children: JSX.Element | JSX.Element[];
 }
 
-export const TimerContext = React.createContext<TimerContextInterface>({
+export const TimerContext = createContext<TimerContextInterface>({
+  isRunning: false,
   seconds: 0,
   minutes: 0,
   hours: 0,
   handleStartTimer: () => {},
-  handleEndTimer: () => {},
+  handleStopTimer: () => {},
   handleResetTimer: () => {},
 });
 
-export const TimerProvider = ({ children }:TimerProviderInterface) => {
+export const TimerProvider: React.FC<TimerProviderInterface> = ({ children }) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [hours, setHours] = useState(0);
@@ -56,7 +58,7 @@ export const TimerProvider = ({ children }:TimerProviderInterface) => {
     setIsRunning(true);
   };
 
-  const handleEndTimer = () => {
+  const handleStopTimer = () => {
     setIsRunning(false);
   };
 
@@ -67,18 +69,19 @@ export const TimerProvider = ({ children }:TimerProviderInterface) => {
     setIsRunning(false);
   };
 
-  const timerContextValue: TimerContextInterface = {
+  const contextTimeValue: TimerContextInterface = {
+    isRunning,
     seconds,
     minutes,
     hours,
     handleStartTimer,
-    handleEndTimer,
+    handleStopTimer,
     handleResetTimer,
   };
 
   return (
-    <TimerContext.Provider value={timerContextValue}>
+    <TimerContext.Provider value={contextTimeValue}>
       {children}
     </TimerContext.Provider>
-  )
+  );
 };
