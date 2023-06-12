@@ -30,7 +30,7 @@ const PuzzleSuccessMessage: React.FC<PuzzleSuccessMessageInterface> = ({ props, 
         <button id="next" onClick={handleOnClick}>Next Puzzle</button>
       </Link>
       <button id="next" onClick={handleOnClick}>Restart Puzzle</button>
-    </div>
+    </div>hola
   );
 }
 
