@@ -17,7 +17,7 @@ export interface PiecesHandlers {
 }
 
 const usePieces = ({ puzzlePieces }: usePiecesInterface): PiecesHandlers => {
-  const { handleStartTimer, handleStopTimer, isRunning } = useContext(TimerContext);
+  const { handleStartTimer, isRunning } = useContext(TimerContext);
 
   const [pieces, setPieces] = useState<Image[]>(puzzlePieces);
   const piecesId: string[] = pieces.map((piece: Image) => piece.id);
@@ -25,10 +25,6 @@ const usePieces = ({ puzzlePieces }: usePiecesInterface): PiecesHandlers => {
   const puzzleCompletedIdOrder:string[] = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"];
 
   const isPuzzleCompleted:boolean = puzzleCompletedIdOrder.every((element, index) => element === piecesId[index]);
-
-  if (isPuzzleCompleted) {
-    handleStopTimer()
-  }
 
   const handleDragEnd = (event: DragEndEvent):void => {
     const {active, over} = event;

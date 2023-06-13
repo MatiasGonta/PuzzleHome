@@ -12,7 +12,7 @@ const BackButton: React.FC<BackButtonInterface> = () => {
   }
 
   return (
-    <div id="back-arrow">
+    <div className="back-btn">
         <Link to='/'>
           <i className="fa-solid fa-arrow-right-to-bracket" onClick={handleOnClick}></i>
         </Link>

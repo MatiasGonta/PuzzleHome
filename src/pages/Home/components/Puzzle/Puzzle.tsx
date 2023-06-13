@@ -9,7 +9,7 @@ const Puzzle: React.FC<PuzzleInterface> = ({ props }) => {
   return (
     <div className="puzzle">
       <div className="level">
-          <p id="level-name">{props.levelName}</p> 
+          <p>{props.levelName}</p> 
           <i className="fa-solid fa-arrow-down fa-fade"></i>
       </div>
       <Link to={`/${props.levelName}`}>

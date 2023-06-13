@@ -1,0 +1,80 @@
+@use '../../../utilities/variables' as V;
+@use '../../../utilities/mixins' as M;
+
+#navbar {
+    @include M.flex-settings(row, space-evenly, wrap);
+
+    width: 50%;
+    margin: 7.5px auto;
+
+    //Logo
+    .logo-container {
+        @include M.flex-settings(row, center);
+    
+        width: 325px;
+        height: auto;
+    
+        img {
+            width: 75px;
+            height: 75px;
+        }
+    
+        h2 {
+            color: transparent;
+            font-size: 35px;
+            font-weight: bold;
+    
+            background: {
+                image: url("./src/assets/background-puzzleshome-logo.png");
+                size: cover;
+                clip: text;
+                position-y: center;
+            };
+            -webkit-background-clip: text;
+        }
+    }
+
+    //Timer
+    .timer-container {
+        @include M.flex-settings(row, center);
+    
+        min-width: 200px;
+        height: 60px;
+        
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 2px V.$second-background-color;
+    
+        background: radial-gradient(circle, V.$second-background-color 0%, V.$first-background-color 93%);
+    
+        span {
+            color: transparent;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0 2.5px;
+        
+            background: {
+                image: url("./src/assets/background-puzzleshome-logo.png");
+                size: cover;
+                clip: text;
+                position-y: center;
+            };
+            -webkit-background-clip: text;
+        }
+    }
+
+    //Back-btn
+    .back-btn {
+        width: 35px;
+        font-size: 35px;
+        cursor: pointer;
+
+        i {
+            color: V.$first-background-color;
+
+            &:hover {
+                color: V.$fourth-background-color;
+            }
+        }
+    }
+}

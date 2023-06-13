@@ -8,7 +8,7 @@ const Timer: React.FC<TimerInterface> = () => {
 
   return (
     <div className="timer-container">
-      <span id="sec">{`${hours.toString().padStart(2,'0')} : ${minutes.toString().padStart(2,'0')} : ${seconds.toString().padStart(2,'0')}`}</span>
+      <span>{`${hours.toString().padStart(2,'0')} : ${minutes.toString().padStart(2,'0')} : ${seconds.toString().padStart(2,'0')}`}</span>
     </div>
   )
 }

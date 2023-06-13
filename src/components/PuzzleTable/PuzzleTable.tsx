@@ -17,13 +17,13 @@ const PuzzleTable: React.FC<PuzzleTableInterface> = ({ puzzlePieces, puzzleCompl
   }
 
   return (
-    <main id="puzzleContainer">
+    <main id="puzzleTable">
       <DndContext
         collisionDetection={closestCenter}
         onDragEnd={handleDragEnd}
         onDragStart={handleDragStart}
       >
-        <section id="pieceContainer">
+        <article>
           <SortableContext
             items={pieces}
             strategy={rectSwappingStrategy}
@@ -31,9 +31,9 @@ const PuzzleTable: React.FC<PuzzleTableInterface> = ({ puzzlePieces, puzzleCompl
             {
               pieces.map((piece:Image) => <Piece pieceProps={piece} key={piece.id} />)
             }
-            {isPuzzleCompleted ? (<PuzzleSuccessMessage props={puzzleCompleted} onPuzzleReset={handleResetPuzzle} />) : (<></>)}
           </SortableContext>
-        </section>
+        </article>
+        {isPuzzleCompleted ? (<PuzzleSuccessMessage props={puzzleCompleted} onPuzzleReset={handleResetPuzzle} />) : (<></>)}
       </DndContext>
     </main>
   )

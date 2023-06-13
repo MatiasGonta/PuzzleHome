@@ -1,5 +1,6 @@
 import { Navbar, PuzzleTable } from "@/components";
-import { easyPieces, easyPuzzleCompleted } from "./data";
+import { easyPieces } from "./data";
+import { puzzleCompletedImages } from '@/data';
 
 
 export interface EasyInterface {}
@@ -8,10 +9,10 @@ const Easy: React.FC<EasyInterface> = () => {
   document.title = "Puzzle Home | Easy";
 
   return (
-    <div>
+    <>
       <Navbar />
-      <PuzzleTable puzzlePieces={easyPieces} puzzleCompleted={easyPuzzleCompleted} />
-    </div>
+      <PuzzleTable puzzlePieces={easyPieces} puzzleCompleted={puzzleCompletedImages.Easy} />
+    </>
   )
 }
 

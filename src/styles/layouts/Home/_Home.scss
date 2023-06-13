@@ -1,0 +1,64 @@
+@use '../../utilities/variables' as V;
+@use '../../utilities/mixins' as M;
+
+//Header
+#home-header {
+    @include M.flex-settings(row, center);
+
+    width: 100%;
+    height: 75px;
+
+    h1 {
+        color: transparent;
+        font-size: 50px;
+        font-weight: bold;
+    
+        background: {
+            image: url("./src/assets/background-puzzleshome-logo.png");
+            size: cover;
+            clip: text;
+            position-y: center;
+        };
+        -webkit-background-clip: text;
+    }
+}
+
+//SelectPuzzle
+#puzzle-selector {
+    @include M.flex-settings(row, space-evenly);
+    
+    border-top: 15px double V.$fourth-background-color;
+
+    //Puzzle
+    .puzzle {
+        font-size: 35px;
+        font-weight: bold;
+
+        color: transparent;
+
+        cursor: pointer;
+
+        &:hover {
+            color: V.$fourth-background-color;
+        }
+
+        .level {
+            @include M.flex-settings(column, space-evenly);
+
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        img {
+            width: 300px;
+            height: 450px;
+
+            &:hover {
+                border: {
+                    left: 10px solid V.$fourth-background-color;
+                    bottom: 10px solid V.$fourth-background-color;
+                };
+            }
+        }
+    }
+}

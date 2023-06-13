@@ -1,18 +1,8 @@
 //Home
-@use './components/Header';
-@use './components/SelectPuzzle';
-@use './components/Puzzle';
+@use './layouts/Home/Home.scss';
 
-//Puzzle-Levels
-//Navbar
-@use './components/Logo';
-@use './components/Timer';
-@use './components/BackButton';
-
-//PuzzleTable
-@use './components/PuzzleTable';
-
-
+//PuzzlePages
+@use './layouts/PuzzlePages/PuzzlePages.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
@@ -21,10 +11,13 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Poppins;
+    text-decoration: none;
 }
 
 body {
-    background-image: url("./src/assets/background-puzzleshome.png");
-    background-position: center;
-    background-color: #3e4346;
+    background: {
+        image: url("./src/assets/background-puzzleshome.png");
+        position: center;
+        color: #3e4346;
+    };
 }
