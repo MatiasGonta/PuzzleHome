@@ -4,6 +4,7 @@ import { Piece } from "./Piece";
 import { usePieces } from '@/hooks';
 import { Image } from '@/models';
 import { PuzzleSuccessMessage } from './PuzzleSuccessMessage';
+import { Sidebar } from './Sidebar';
 export interface PuzzleTableInterface {
   puzzlePieces: Image[];
   puzzleCompleted: Image;
@@ -35,6 +36,7 @@ const PuzzleTable: React.FC<PuzzleTableInterface> = ({ puzzlePieces, puzzleCompl
         </article>
         {isPuzzleCompleted ? (<PuzzleSuccessMessage props={puzzleCompleted} onPuzzleReset={handleResetPuzzle} />) : (<></>)}
       </DndContext>
+      <Sidebar></Sidebar>
     </main>
   )
 }

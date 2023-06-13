@@ -5,7 +5,8 @@
     @include M.flex-settings(row, space-evenly);
 
     margin: 0 auto;
-    width: 450px;
+    // width: 450px;
+    width: 550px;
     height: 650px;
     background: radial-gradient(circle, V.$second-background-color 0%, V.$first-background-color 93%);
     box-shadow: 0 0 10px 2px V.$second-background-color;
