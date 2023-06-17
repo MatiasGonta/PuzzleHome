@@ -6,11 +6,11 @@ export interface NavbarInterface {}
 
 const NavBar: React.FC<NavbarInterface> = () => {
   return (
-    <header id="navbar">
+    <nav id="navbar">
       <Logo />
       <Timer />
       <BackButton />
-    </header>
+    </nav>
   )
 }
 

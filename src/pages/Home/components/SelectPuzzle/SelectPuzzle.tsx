@@ -1,4 +1,4 @@
-import { Puzzle } from "..";
+import { Puzzle } from "./Puzzle";
 import { puzzleCompletedImages } from '@/data';
 
 export interface SelectPuzzle {}

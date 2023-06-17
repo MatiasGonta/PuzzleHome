@@ -1,14 +1,14 @@
 import { TimerContext } from "@/context";
 import { useContext } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export interface BackButtonInterface {}
 
 const BackButton: React.FC<BackButtonInterface> = () => {
   const { handleResetTimer } = useContext(TimerContext);
   
-  const handleOnClick = () => {
-    handleResetTimer()
+  const handleOnClick = ():void => {
+    handleResetTimer();
   }
 
   return (

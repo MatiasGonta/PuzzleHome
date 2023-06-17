@@ -1,3 +1,2 @@
-export * from './Header';
-export * from './Puzzle';
+export * from './SelectPuzzle/Puzzle';
 export * from './SelectPuzzle';

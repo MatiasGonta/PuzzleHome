@@ -8,7 +8,9 @@ const Hard: React.FC<HardInterface> = () => {
   document.title = "Puzzle Home | Hard";
   return (
     <>
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <PuzzleTable puzzlePieces={hardPieces} puzzleCompleted={puzzleCompletedImages.Hard} />
     </>
   )

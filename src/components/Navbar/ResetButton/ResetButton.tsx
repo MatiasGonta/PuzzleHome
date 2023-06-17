@@ -7,7 +7,7 @@ const ResetButton: React.FC<ResetButtonInterface> = () => {
   const { handleResetTimer } = useContext(TimerContext);
 
   const handleOnClick = () => {
-    handleResetTimer()
+    handleResetTimer();
   }
 
   return (

@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { useRouteError } from "react-router-dom";
-import { ErrorObject } from '@/models';
 
+type ErrorObject = {
+  status: number;
+  statusText: string;
+  message: string;
+}
 
 export interface ErrorInterface {}
 

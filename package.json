@@ -15,14 +15,13 @@
     "@dnd-kit/utilities": "^3.2.1",
     "@types/react-router-dom": "^5.3.3",
     "react": "^18.2.0",
-    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
-    "react-router-dom": "6"
+    "react-router-dom": "6",
+    "react-social-icons": "^5.15.0"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
     "@types/react": "^18.0.37",
-    "@types/react-beautiful-dnd": "^13.1.4",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",

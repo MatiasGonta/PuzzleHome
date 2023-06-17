@@ -1,0 +1,37 @@
+@use '../../../../utilities/mixins' as M;
+@use '../../../../utilities/variables' as V;
+
+#main-puzzle-page {
+  @include M.flex-settings(column, center);
+  @media (min-width: 1000px) {
+    @include M.flex-settings(row, center, nowrap, start);
+  }
+
+  #puzzle-table {
+    @include M.flex-settings(row, center);
+
+    width: 450px;
+    height: 650px;
+    background: radial-gradient(circle, V.$second-color 0%, V.$first-color 93%);
+    box-shadow: 0 0 10px 2px V.$second-color;
+    border-radius: 15px;
+
+    section {
+      width: 400px;
+      height: 600px;
+      background: V.$third-color;
+      box-shadow: 0 0 10px 2px V.$third-color;
+
+      display: grid;
+      grid-template-columns: repeat(4,100px);
+      grid-template-rows: repeat(6,100px);
+
+      img {
+          width: 100px;
+          height: 100px;
+          padding: 1px;
+          cursor: pointer;
+      }
+    }
+  }
+}

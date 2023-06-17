@@ -1,3 +1,5 @@
+@use './utilities/variables' as V;
+
 //Home
 @use './layouts/Home/Home.scss';
 
@@ -18,6 +20,6 @@ body {
     background: {
         image: url("./src/assets/background-puzzleshome.png");
         position: center;
-        color: #3e4346;
+        color: V.$body-bg-color;
     };
 }

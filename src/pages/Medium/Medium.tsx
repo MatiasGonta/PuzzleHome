@@ -6,9 +6,12 @@ export interface MediumInterface {}
 
 const Medium: React.FC<MediumInterface> = () => {
   document.title = "Puzzle Home | Medium";
+  
   return (
     <>
-      <Navbar />
+      <header>
+        <Navbar />
+      </header>
       <PuzzleTable puzzlePieces={mediumPieces} puzzleCompleted={puzzleCompletedImages.Medium} />
     </>
   )

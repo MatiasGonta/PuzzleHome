@@ -1,0 +1,21 @@
+@use '../../../../utilities/mixins' as M;
+@use '../../../../utilities/variables' as V;
+
+aside {
+    @include M.flex-settings(row, center);
+    margin: 25px;
+    border-radius: 15px;
+    width: 300px;
+    height: 150px;
+    background: radial-gradient(circle, V.$second-color 0%, V.$first-color 93%);
+    box-shadow: 0 0 10px 2px V.$second-color;
+    
+    div {
+        @include M.flex-settings(column, center);
+        @include M.text-decoration(35px);
+
+        span {
+            font-size: 25px;
+        }
+    }
+}

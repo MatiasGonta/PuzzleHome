@@ -1,7 +1,20 @@
-@mixin flex-settings($f-direction, $f-justify-content, $f-wrap: nowrap) {
+@mixin flex-settings($f-direction, $f-justify-content, $f-wrap: nowrap, $-align-items: center) {
     display: flex;
     flex-direction: $f-direction;
     flex-wrap: $f-wrap;
     justify-content: $f-justify-content;
-    align-items: center;
+    align-items: $-align-items;
+}
+
+@mixin text-decoration($t-font-size) {
+    color: transparent;
+    font-size: $t-font-size;
+    font-weight: bold;
+    background: {
+        image: url("./src/assets/background-puzzleshome-logo.png");
+        size: cover;
+        clip: text;
+        position-y: center;
+    };
+    -webkit-background-clip: text;
 }
