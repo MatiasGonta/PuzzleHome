@@ -17,7 +17,7 @@ const Error: React.FC<ErrorInterface> = () => {
     <div>
         <h1>Error</h1>
         <p>{error.statusText || error.message}</p>
-        <Link to='/'>Home</Link>
+        <Link to='/'>Return to Home</Link>
     </div>
   )
 }

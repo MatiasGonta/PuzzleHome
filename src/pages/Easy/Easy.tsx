@@ -1,6 +1,7 @@
 import { Navbar, PuzzleTable } from "@/components";
 import { easyPieces } from "./data";
 import { puzzleCompletedImages } from '@/data';
+import { piecesShuffler } from "@/utilities";
 
 export interface EasyInterface {}
 
@@ -12,7 +13,7 @@ const Easy: React.FC<EasyInterface> = () => {
       <header>
         <Navbar />
       </header>
-      <PuzzleTable puzzlePieces={easyPieces} puzzleCompleted={puzzleCompletedImages.Easy} />
+      <PuzzleTable puzzlePieces={piecesShuffler(easyPieces)} puzzleCompleted={puzzleCompletedImages.Easy} />
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { Navbar, PuzzleTable } from "@/components"
 import { mediumPieces } from "./data";
 import { puzzleCompletedImages } from '@/data';
+import { piecesShuffler } from "@/utilities";
 
 export interface MediumInterface {}
 
@@ -12,7 +13,7 @@ const Medium: React.FC<MediumInterface> = () => {
       <header>
         <Navbar />
       </header>
-      <PuzzleTable puzzlePieces={mediumPieces} puzzleCompleted={puzzleCompletedImages.Medium} />
+      <PuzzleTable puzzlePieces={piecesShuffler(mediumPieces)} puzzleCompleted={puzzleCompletedImages.Medium} />
     </>
   )
 }

@@ -6,6 +6,7 @@ import { TimerContext } from "@/context";
 import { Piece } from "./Piece";
 import { PuzzleSuccessMessage } from './PuzzleSuccessMessage';
 import { Sidebar } from './Sidebar';
+import { piecesShuffler } from "@/utilities";
 export interface PuzzleTableInterface {
   puzzlePieces: Image[];
   puzzleCompleted: Image;
@@ -41,7 +42,7 @@ const PuzzleTable: React.FC<PuzzleTableInterface> = ({ puzzlePieces, puzzleCompl
   }
 
   const handleResetPuzzle = () => {
-    setPieces(puzzlePieces);
+    setPieces(piecesShuffler(puzzlePieces));
   }
 
   return (
