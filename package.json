@@ -1,9 +1,12 @@
 {
   "name": "puzzle-home",
   "private": true,
+  "homepage": "http://MatiasGonta.github.io/Puzzle-Home",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -14,6 +17,7 @@
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "^3.2.1",
     "@types/react-router-dom": "^5.3.3",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "6",
