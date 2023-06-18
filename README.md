@@ -13,12 +13,12 @@ Puzzle Home is an interactive web page that offers a collection of puzzles for u
 
 ## Technologies Used
 
-- **React**: A JavaScript library for building interactive user interfaces.
-- **TypeScript**: A superset of JavaScript that adds static types and other features to the language syntax.
-- **Sass**: A CSS preprocessor that provides additional features and a more readable syntax.
-- **React Dnd-kit**: A library that makes implementing drag and drop functionality in React easier.
-- **React Router**: A library for managing routes and navigation in React applications.
-- **react-social-icons**: A library that offers a wide range of pre-defined social icons for use in the application.
+- <a href="https://react.dev/" target="_blank">**React**</a>: A JavaScript library for building interactive user interfaces.
+- <a href="https://www.typescriptlang.org/docs/" target="_blank">**TypeScript**</a>: A superset of JavaScript that adds static types and other features to the language syntax.
+- <a href="https://sass-lang.com/documentation/" target="_blank">**Sass**</a>: A CSS preprocessor that provides additional features and a more readable syntax.
+- <a href="https://docs.dndkit.com/" target="_blank">**React Dnd-kit**</a>: A library that makes implementing drag and drop functionality in React easier.
+- <a href="https://reactrouter.com/en/main" target="_blank">**React Router**</a>: A library for managing routes and navigation in React applications.
+- <a href="https://www.npmjs.com/package/react-social-icons" target="_blank">**react-social-icons**</a>: A library that offers a wide range of pre-defined social icons for use in the application.
 
 ## Project Structure
 
