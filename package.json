@@ -1,7 +1,7 @@
 {
   "name": "puzzle-home",
   "private": true,
-  "homepage": "http://MatiasGonta.github.io/PuzzleHome",
+  "homepage": ".",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
