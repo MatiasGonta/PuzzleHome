@@ -2,6 +2,8 @@
 
 Puzzle Home is an interactive web page that offers a collection of puzzles for users to enjoy and challenge their solving skills. The project is developed using React with TypeScript and makes use of several popular libraries and tools to provide a smooth and engaging user experience.
 
+![home-screenshot!](./screenshot1.png) ![puzzle-screenshot!](./screenshot2.png)
+
 ## Features
 
 - Three puzzles of different difficulty levels to choose from: easy, medium, and hard.
