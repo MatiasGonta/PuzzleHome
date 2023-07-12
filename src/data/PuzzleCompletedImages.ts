@@ -1,12 +1,6 @@
-import { Image } from '@/models';
+import { Image, TypeWithKey } from '@/models';
 
-interface PuzzleCompletedImagesInterface {
-  Easy: Image;
-  Medium: Image;
-  Hard: Image;
-}
-
-export const puzzleCompletedImages: PuzzleCompletedImagesInterface = {
+export const puzzleCompletedImages: TypeWithKey<Image> = {
   Easy: {
     levelName: 'Easy',
     src: './src/assets/puzzle-completed/easypuzzle-complete.jpg',
