@@ -26,12 +26,8 @@ const PuzzleTable: React.FC<PuzzleTableInterface> = ({ puzzlePieces, puzzleCompl
   const handleDragEnd = (event: DragEndEvent):void => {
     const {active, over} = event;
 
-    if (over === null ) {
-      return;
-    }
-
     const oldIndex:number = pieces.findIndex((piece: Image) => piece.id === active.id);
-    const newIndex:number = pieces.findIndex((piece: Image) => piece.id === over.id);
+    const newIndex:number = pieces.findIndex((piece: Image) => piece.id === over!.id);
 
     const newPiecesOrder:Image[] = arraySwap(pieces, oldIndex, newIndex);
     setPieces(newPiecesOrder);
