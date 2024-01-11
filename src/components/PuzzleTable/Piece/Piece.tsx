@@ -7,7 +7,6 @@ export interface pieceInterface {
 }
 
 const Piece: React.FC<pieceInterface> = ({ pieceProps }) => {
-
   const {attributes, listeners, setNodeRef, transform, transition} = useSortable({id: pieceProps.id})
 
   const styles: React.CSSProperties = {
@@ -21,9 +20,9 @@ const Piece: React.FC<pieceInterface> = ({ pieceProps }) => {
       ref={setNodeRef}
       {...attributes}
       {...listeners}
-      className={pieceProps.className}
+      className="piece-img"
       src={pieceProps.src}
-      alt={pieceProps.alt}
+      alt={`piece${pieceProps.id}.jpg`}
       id={pieceProps.id}
     />
   )

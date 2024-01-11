@@ -63,7 +63,7 @@ const PuzzleTable: React.FC<PuzzleTableInterface> = ({ puzzlePieces, puzzleCompl
       </DndContext>
       </article>
       <aside>
-        <Sidebar puzzleLevel={puzzleCompleted.levelName} />
+        <Sidebar />
       </aside>
     </main>
   )

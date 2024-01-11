@@ -1,10 +1,12 @@
 import { getLocalStorage, formatTime } from "@/utilities";
+import { useLocation } from "react-router-dom";
 
-export interface SidebarInterface {
-  puzzleLevel: string | undefined;
-}
+export interface SidebarInterface {}
 
-const Sidebar: React.FC<SidebarInterface> = ({ puzzleLevel }) => {
+const Sidebar: React.FC<SidebarInterface> = () => {
+  let { pathname } = useLocation();
+  const puzzleLevel = pathname.substring(1);
+
   const bestTime: string | null = getLocalStorage(`${puzzleLevel}BestTime`);
 
   return (

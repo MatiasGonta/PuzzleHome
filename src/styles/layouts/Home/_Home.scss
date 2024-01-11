@@ -2,93 +2,104 @@
 @use "../../utilities/mixins" as M;
 
 // Header
-#home-header {
+.home-header {
   background-color: V.$first-color;
   text-align: center;
+  position: relative;
 
-  h1 {
+  &__title {
     @include M.text-decoration(40px);
     display: inline;
   }
 
-  #social-networks {
+  &__social-networks {
     @include M.flex-settings(row,space-between);
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
     width: 150px;
     height: 60px;
-    margin: 0 10px;
 
     @media (max-width: 700px) {
       position: static;
       margin: auto;
     }
 
-    .social-icon {
-      // margin: 0 5px;
+    &__social-icon {
+      transition: transform 300ms linear;
       max-width: 40px;
       max-height: 40px;
+
+      &:active {
+        transform: scale(0.90);
+      }
     }
   }
 }
 
 // Puzzle-Selector
-#puzzle-selector {
+.puzzle-selector {
   @include M.flex-settings(row, space-evenly, wrap);
   width: 100%;
+}
 
-  .puzzle {
-    @include M.flex-settings(column, center, nowrap);
-    width: 400px;
-    height: 625px;
-    margin: 35px 0;
-    background-color: V.$second-color;
-    border-radius: 10px;
+// Puzzle
+.puzzle {
+  @include M.flex-settings(column, center, nowrap);
+  width: 400px;
+  height: 625px;
+  margin: 35px 0;
+  background-color: V.$second-color;
+  border-radius: 10px;
 
+  &:hover {
+    .puzzle__level__icon {
+      visibility: visible;
+      opacity: 1;
+      width: 30px;
+    }
+
+    .puzzle__level--noplayed {
+      @include M.flex-settings(row, space-between, wrap);
+    }
+  }
+
+  &__level {
+    @include M.flex-settings(row, space-between, nowrap);
+    @include M.text-decoration(25px);
+    width: 90%;
+    margin-bottom: 10px;
+    color: V.$third-color;
+
+    &__icon {
+      visibility: hidden;
+      opacity: 0;
+      width: 0;
+      height: 30px;
+      transition: opacity 500ms linear;
+    }
+  }
+
+  &__level--noplayed {
+    @include M.flex-settings(row, center, nowrap);
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.2s;
+      
     &:hover {
-      .level i {
-        display: block;
-      }
-
-      .level.noplayed {
-        @include M.flex-settings(row, space-between, wrap);
-      }
+      transform: scale(1.03);
     }
-
-    .level {
-      @include M.flex-settings(row, space-between, nowrap);
-      @include M.text-decoration(25px);
-      width: 90%;
-      margin-bottom: 10px;
-      color: V.$third-color;
-
-      i {
-        display: none;
-      }
-    }
-
-    .level.noplayed {
-      @include M.flex-settings(row, center, nowrap);
-    }
-
-    a {
-      display: block;
-      text-decoration: none;
-      transition: transform 0.2s;
       
+    &__img {
+      width: 350px;
+      height: 525px;
+      border-radius: 5px;
+
       &:hover {
-        transform: scale(1.03);
-      }
-      
-      img {
-        width: 350px;
-        height: 525px;
-        border-radius: 5px;
-
-        &:hover {
-          box-shadow: 0 0 10px 2px V.$third-color;
-        }
+        box-shadow: 0 0 10px 2px V.$third-color;
       }
     }
   }

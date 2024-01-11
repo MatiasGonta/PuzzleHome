@@ -1,7 +1,8 @@
 @use '../../../../../utilities/mixins' as M;
 @use '../../../../../utilities/variables' as V;
 
-svg {
+.back__icon,
+.front__icon {
   position: absolute;
   left: -15%;
   bottom: -17%;
