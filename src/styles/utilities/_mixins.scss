@@ -8,6 +8,7 @@
 
 @mixin text-decoration($t-font-size) {
     color: transparent;
+    color: #b4b1a64f;
     font-size: $t-font-size;
     font-weight: bold;
     background: {

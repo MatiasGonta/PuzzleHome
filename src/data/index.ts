@@ -1,1 +1,1 @@
-export * from './PuzzleCompletedImages';
+export * from './puzzle';

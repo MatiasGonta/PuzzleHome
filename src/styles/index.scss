@@ -1,15 +1,15 @@
 @use './utilities/variables' as V;
 
-//Home
-@use './layouts/Home/Home.scss';
+// LoadingSpinner
+@use './components/LoadingSpinner.scss';
 
-//PuzzlePages
-@use './layouts/PuzzlePages/PuzzlePages.scss';
+// Error Component
+@use './layouts/Error.scss';
 
-//Error
-@use './layouts/Error/Error.scss';
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@font-face {
+    font-family: Poppins;
+    src: url(../fonts/Poppins-Regular.ttf);
+}
 
 * {
     margin: 0;

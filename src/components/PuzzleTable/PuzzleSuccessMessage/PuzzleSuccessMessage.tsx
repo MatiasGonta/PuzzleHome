@@ -1,25 +1,28 @@
 import { TimerContext } from '@/context';
-import { Image } from '@/models';
-import { setLocalStorage, getLocalStorage } from '@/utilities';
+import { setLocalStorage, getLocalStorage, formatTime } from '@/utilities';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { BestTimeBadge } from './BestTimeBadge';
+import { puzzleCompletedImages } from '@/data';
 
 export interface PuzzleSuccessMessageInterface {
-  props: Image;
+  puzzleKey: string;
   onPuzzleReset: ()=> void;
 }
 
-const PuzzleSuccessMessage: React.FC<PuzzleSuccessMessageInterface> = ({ props, onPuzzleReset }) => {
-  const { seconds, minutes, hours, handleResetTimer, handleStopTimer } = useContext(TimerContext);
+const PuzzleSuccessMessage: React.FC<PuzzleSuccessMessageInterface> = ({ puzzleKey, onPuzzleReset }) => {
+  const puzzleCompleted = puzzleCompletedImages[puzzleKey as keyof typeof puzzleCompletedImages];
 
-  const bestTime: string | null = getLocalStorage(`${props.levelName}BestTime`);
-  const currentTime: number = hours * 3600 + minutes * 60 + seconds;
-  const isNewRecord: boolean = !bestTime || currentTime < parseInt(bestTime);
+  const { seconds, handleResetTimer, handleStopTimer } = useContext(TimerContext);
+  const time = formatTime(seconds);
+
+  const bestTimeRaw: string | null = getLocalStorage(`${puzzleCompleted.levelName}BestTime`);
+  const currentTime: number = seconds;
+  const isNewRecord: boolean = !bestTimeRaw || currentTime < parseInt(bestTimeRaw);
 
   const handleOnClick = (): void => {
-    if (!bestTime || currentTime < parseInt(bestTime)) {
-      setLocalStorage(`${props.levelName}BestTime`, currentTime);
+    if (!bestTimeRaw || currentTime < parseInt(bestTimeRaw)) {
+      setLocalStorage(`${puzzleCompleted.levelName}BestTime`, currentTime);
     }
 
     onPuzzleReset();
@@ -28,32 +31,32 @@ const PuzzleSuccessMessage: React.FC<PuzzleSuccessMessageInterface> = ({ props, 
 
   return (
     <>
+      {/* Modal */}
       <div className="puzzle-blocker"></div>
-      <div className="success-message" onLoad={handleStopTimer}>
-        <h4>Congratulations, you completed the puzzle!</h4>
-        <img src={props.src} alt={props.alt} />
-        <div className="separator"></div>
-        <div id="success-time">
+
+      <div className="puzzle-success" onLoad={handleStopTimer}>
+        <h4 className="puzzle-success__title">Congratulations, you completed the puzzle!</h4>
+        <img className="puzzle-success__img" src={puzzleCompleted.src} alt={puzzleCompleted.id} />
+
+        <div className="puzzle-success__time">
           <h6>Your Time</h6>
-          {(isNewRecord) ? (
-            <div>
-              <BestTimeBadge />
-              <span>{`${hours.toString().padStart(2, '0')} : ${minutes.toString().padStart(2, '0')} : ${seconds.toString().padStart(2, '0')}`}</span>
-            </div>
-          ) : (
-            <span>{`${hours.toString().padStart(2,'0')} : ${minutes.toString().padStart(2,'0')} : ${seconds.toString().padStart(2,'0')}`}</span>
-          )}
+          <div>
+            { isNewRecord && <BestTimeBadge /> }
+            <span className="puzzle-success__time__text">{time}</span>
+          </div>
         </div>
-        <div className="separator"></div>
+
         <div>
-          <Link to='/'>
-            <button onClick={handleOnClick}>Next Puzzle</button>
+          <Link to='/' className="puzzle-home-button">
+            <span onClick={handleOnClick}>Next Puzzle</span>
           </Link>
-          <button onClick={handleOnClick}>Restart Puzzle</button>
+          <button className="puzzle-home-button" onClick={handleOnClick}>
+            <span>Restart Puzzle</span>
+          </button>
         </div>
       </div>
     </>
   );
 }
 
-export default PuzzleSuccessMessage
+export default PuzzleSuccessMessage;

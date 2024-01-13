@@ -1,0 +1,80 @@
+@use '../../utilities/_variables' as V;
+@use '../../utilities/_mixins' as M;
+
+@use '../../layouts/_Navbar.scss';
+@use '../../layouts/_PuzzleSuccessMessage.scss';
+
+// Puzzle
+.puzzle {
+  @include M.flex-settings(column, center);
+
+  @media (min-width: 1000px) {
+    @include M.flex-settings(row, center, nowrap, start);
+  }
+} 
+
+// Puzzle Table
+.puzzle__table {
+  @include M.flex-settings(row, center);
+  width: 400px;
+  height: 575px;
+  background: radial-gradient(circle, V.$second-color 0%, V.$first-color 93%);
+  box-shadow: 0 0 10px 2px V.$second-color;
+  border-radius: 15px;
+
+  @media (min-width: 640px) {
+    width: 450px;
+    height: 650px;
+  }
+  
+  &__pieces {
+    width: 350px;
+    height: 525px;
+    background: V.$third-color;
+    box-shadow: 0 0 10px 2px V.$third-color;
+    display: grid;
+    grid-template-columns: repeat(4,87.5px);
+    grid-template-rows: repeat(6,87.5px);
+
+    @media (min-width: 640px) {
+      width: 400px;
+      height: 600px;
+      grid-template-columns: repeat(4,100px);
+      grid-template-rows: repeat(6,100px);
+    }
+  
+    &__piece-img {
+      width: 87.5px;
+      height: 87.5px;
+      padding: 1px;
+      cursor: pointer;
+
+      @media (min-width: 640px) {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
+
+// PuzzleBestTime
+.puzzle__best-time {
+  @include M.flex-settings(row, center);
+  margin: 25px;
+  border-radius: 15px;
+  width: 300px;
+  height: 150px;
+  border: none;
+  border-top: 5px solid V.$fourth-color;
+  background: radial-gradient(circle, V.$second-color 0%, V.$first-color 93%);
+  box-shadow: 0 0 10px 2px V.$second-color;
+    
+  & div {
+    @include M.flex-settings(column, center);
+    @include M.text-decoration(35px);
+
+    span {
+      font-size: 25px;
+    }
+  }
+}

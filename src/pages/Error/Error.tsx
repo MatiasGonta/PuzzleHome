@@ -1,27 +1,27 @@
-import { Link } from "react-router-dom";
+import { ErrorComponent } from "@/components";
 import { useRouteError } from "react-router-dom";
 
-type ErrorObject = {
+interface Error {
+  message: string;
+  stack: string;
+}
+
+interface RouteError {
   status: number;
   statusText: string;
-  message: string;
+  internal: boolean;
+  data: string;
+  error: Error;
 }
 
 export interface ErrorInterface {}
 
 const Error: React.FC<ErrorInterface> = () => {
-    document.title = "Puzzle Home";
-    const error: ErrorObject = useRouteError() as ErrorObject;
+  const error: RouteError = useRouteError() as RouteError;
+  document.title = `Puzzle Home | Error ${error.status}`;
 
   return (
-    <div id="error-page">
-        <img src="https://cdn.rawgit.com/ahmedhosna95/upload/1731955f/sad404.svg" alt="error" />
-        <h1>Error</h1>
-        <p>{error.statusText || error.message}</p>
-        <Link to='/'>
-          <button>Return to Home</button>
-        </Link>
-    </div>
+    <ErrorComponent error={error.error.message || error.statusText} />
   )
 }
 

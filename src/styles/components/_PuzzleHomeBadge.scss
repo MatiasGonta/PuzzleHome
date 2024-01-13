@@ -1,0 +1,17 @@
+@use '../utilities/variables' as V;
+@use '../utilities/mixins' as M;
+
+.puzzle-home-badge {
+    @include M.flex-settings(row, center);
+    width: 325px;
+    height: auto;
+    
+    &__img {
+        width: 75px;
+        height: 75px;
+    }
+    
+    &__title {
+        @include M.text-decoration(35px);
+    }
+}

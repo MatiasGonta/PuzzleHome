@@ -1,5 +1,8 @@
 export interface Image {
-    levelName?: string;
     src: string;
     id: string;
+}
+
+export interface CompletedImage extends Image{
+    levelName: string;
 }

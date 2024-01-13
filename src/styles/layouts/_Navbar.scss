@@ -1,0 +1,183 @@
+@use '../utilities/_variables' as V;
+@use '../utilities/_mixins' as M;
+
+// Puzzle home badge
+@use '../components/_PuzzleHomeBadge';
+
+$return-home-primary-color: #303030;
+$return-home-primary-color-hover: #96938a;
+$return-home-secondary-color: #404040;
+$return-home-secondary-color-hover: #b4b1a6;
+$return-home-tertiary-color: #606060;
+$return-home-exit-bg: linear-gradient(135deg, rgba(118,175,156,0.8) 10%, rgba(201,155,98,0.8) 20%, rgba(140,99,117,0.8) 30%, rgba(118,175,156,0.87718837535014) 42%, rgba(235,185,88,0.8) 53%, rgba(134,94,118,0.8) 65%, rgba(118,175,156,0.8) 77%, rgba(201,155,98,0.8) 88%, rgba(112,74,125,0.8) 95%);
+
+.navbar {
+    @include M.flex-settings(column, center, wrap);
+    width: auto;
+    margin: 10px auto;
+    margin-bottom: 25px;
+
+    @media (min-width: 640px) {
+        @include M.flex-settings(row, space-evenly, wrap);
+        width: 50%;
+        margin: 10px auto;
+    }
+
+    // Timer
+    &__timer {
+        @include M.flex-settings(row, center);
+        min-width: 200px;
+        height: 60px;
+        border: none;
+        border-top: 5px solid V.$fourth-color;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 2px V.$second-color;
+        background: radial-gradient(circle, V.$second-color 0%, V.$first-color 93%);
+    
+        &__time {
+            margin: 0 2.5px;
+            @include M.text-decoration(30px);
+        }
+    }
+
+    // Back-btn
+    &__back-btn {
+        width: 35px;
+        font-size: 35px;
+        margin-top: 20px;
+        cursor: pointer;
+
+        @media (min-width: 640px) {
+            margin-top: 0;
+        }
+    }
+}
+
+// Return Home Icon
+.return-home {
+    position: relative;
+    top: 2.5px;
+    width: 44px;
+    height: 40px;
+
+    * {
+        transition: all 150ms linear;
+    }
+
+    &:hover {
+        .return-home__walkman {
+            left: 16px;
+        }
+
+        .return-home__frame {
+            border-color: $return-home-primary-color-hover;
+        }
+
+        .return-home__door {
+            background-color: $return-home-secondary-color-hover;
+            transform: skewY(0deg);
+            top: 0;
+            width: 27px;
+
+            &::after {
+                left: 7.5px;
+                font-size: 7px;
+            }
+            
+            &::before {
+                top: 4px;
+                left: 5px;
+                width: 16px;
+            }
+
+            &__latch__handle {
+                transform: rotate(0deg);
+            }
+        }
+
+        .return-home__door__latch {
+            background-color: $return-home-secondary-color;
+        }
+    }
+
+    &__walkman {
+        position: absolute;
+        top: 6px;
+        width: 32px;
+        height: 32px;
+        left: -7px;
+        transition: left 300ms linear;
+        stroke: $return-home-primary-color;
+        z-index: 2;
+    }
+
+    &__frame {
+        position: absolute;
+        right: 0;
+        width: 27px;
+        height: 37px;
+        border-radius: 2px;
+        border: 1px solid $return-home-primary-color;
+        z-index: 1;
+    }
+
+    &__door {
+        position: absolute;
+        top: 2px;
+        right: 0;
+        width: 22px;
+        height: 37px;
+        background-color: $return-home-secondary-color;
+        border-radius: 2px;
+        transform: skewY(-10deg);
+        z-index: 3;
+
+        &::before,
+        &::after {
+            transition: all 150ms linear;
+        }
+
+        &::before {
+            content: "";
+            background-color: #1b741b;
+            background: $return-home-exit-bg;
+            position: absolute;
+            top: 3.5px;
+            left: 3.5px;
+            width: 14px;
+            height: 8px;
+            border-radius: 2px;
+            border: 1px solid #fff;
+        }
+
+        &::after {
+            content: "EXIT";
+            font-size: 6px;
+            color: #fff;
+            position: absolute;
+            top: 4px;
+            left: 6px;
+        }
+
+        &__latch {
+            position: absolute;
+            top: 19px;
+            left: 3px;
+            width: 4px;
+            height: 4px;
+            background-color: $return-home-tertiary-color;
+            border-radius: 50%;
+
+            &__handle {
+                position: absolute;
+                top: 1px;
+                left: 1.5px;
+                width: 7px;
+                height: 2px;
+                border-radius: 2px;
+                background-color: inherit;
+                transform: rotate(20deg);
+            }
+        }
+    }
+}

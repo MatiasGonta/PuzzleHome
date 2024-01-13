@@ -1,0 +1,49 @@
+@use '../utilities/_mixins' as M;
+@use '../utilities/_variables' as V;
+
+// Best time badge
+@use '../components/_BestTimeBadge.scss';
+// Puzzle home button
+@use '../components/_PuzzleHomeButton.scss';
+
+.puzzle-blocker {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+}
+
+.puzzle-success {
+    @include M.flex-settings(column, space-evenly);
+    position: absolute;
+    width: 350px;
+    height: 575px;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px V.$second-color;
+    background: radial-gradient(circle, #6b6b6be8 0%, #303030e3 93%);
+    color: V.$fourth-color;
+    z-index: 101;
+
+    &__title {
+        font-size: 25px;
+    }
+
+    &__img {
+        box-shadow: 0 0 10px 2px V.$fourth-color;
+        width: 200px;
+        height: 275px;
+        margin: 15px 0;
+        cursor: default;
+    }
+    
+    &__time h6,
+    &__time__text {
+        font-size: 20px;
+    }
+}

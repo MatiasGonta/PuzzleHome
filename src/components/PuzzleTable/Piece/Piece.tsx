@@ -20,7 +20,7 @@ const Piece: React.FC<pieceInterface> = ({ pieceProps }) => {
       ref={setNodeRef}
       {...attributes}
       {...listeners}
-      className="piece-img"
+      className="puzzle__table__pieces__piece-img"
       src={pieceProps.src}
       alt={`piece${pieceProps.id}.jpg`}
       id={pieceProps.id}
