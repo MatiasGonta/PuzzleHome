@@ -1,7 +1,7 @@
 import { TimerContext } from '@/context';
 import { setLocalStorage, getLocalStorage, formatTime } from '@/utilities';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { BestTimeBadge } from './BestTimeBadge';
 import { puzzleCompletedImages } from '@/data';
 
@@ -11,6 +11,8 @@ export interface PuzzleSuccessMessageInterface {
 }
 
 const PuzzleSuccessMessage: React.FC<PuzzleSuccessMessageInterface> = ({ puzzleKey, onPuzzleReset }) => {
+  const navigate = useNavigate();
+
   const puzzleCompleted = puzzleCompletedImages[puzzleKey as keyof typeof puzzleCompletedImages];
 
   const { seconds, handleResetTimer, handleStopTimer } = useContext(TimerContext);
@@ -20,13 +22,17 @@ const PuzzleSuccessMessage: React.FC<PuzzleSuccessMessageInterface> = ({ puzzleK
   const currentTime: number = seconds;
   const isNewRecord: boolean = !bestTimeRaw || currentTime < parseInt(bestTimeRaw);
 
-  const handleOnClick = (): void => {
-    if (!bestTimeRaw || currentTime < parseInt(bestTimeRaw)) {
+  const handleOnClick = (navigation: boolean): void => {
+    if (isNewRecord) {
       setLocalStorage(`${puzzleCompleted.levelName}BestTime`, currentTime);
     }
 
     onPuzzleReset();
     handleResetTimer();
+
+    if (navigation) {
+      navigate('/');
+    }
   };
 
   return (
@@ -47,10 +53,10 @@ const PuzzleSuccessMessage: React.FC<PuzzleSuccessMessageInterface> = ({ puzzleK
         </div>
 
         <div>
-          <Link to='/' className="puzzle-home-button">
-            <span onClick={handleOnClick}>Next Puzzle</span>
-          </Link>
-          <button className="puzzle-home-button" onClick={handleOnClick}>
+          <button className="puzzle-home-button">
+            <span onClick={() => handleOnClick(true)}>Next Puzzle</span>
+          </button>
+          <button className="puzzle-home-button" onClick={() => handleOnClick(false)}>
             <span>Restart Puzzle</span>
           </button>
         </div>
