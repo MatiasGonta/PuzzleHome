@@ -6,7 +6,7 @@
 
 # Puzzle Home
 
-Puzzle Home is a web page that offers a collection of puzzles for users to enjoy and challenge their solving skills. The project is developed using React with TypeScript and makes use of several popular libraries and tools to provide a smooth and engaging user experience.
+Puzzle Home is a website that offers a collection of puzzles for users to enjoy and challenge their solving skills. The project is developed using React and TypeScript, harnessing the power of these technologies. Additionally, for drop and drag interaction (drag and drop), the DndKit library is used, providing fluid functionality.
 
 ![puzzle-home-screenshot!](./puzzle-home-screenshot.png)
 
@@ -56,7 +56,7 @@ If you have any questions or concerns, feel free to contact me.
 
 # Puzzle Home
 
-Puzzle Home es una página web que ofrece una colección de rompecabezas para que los usuarios disfruten y desafíen sus habilidades de resolución. El proyecto se desarrolla utilizando React con TypeScript y utiliza varias bibliotecas y herramientas populares para brindar una experiencia de usuario fluida y atractiva.
+Puzzle Home es una página web que ofrece una colección de rompecabezas para que los usuarios disfruten y desafíen sus habilidades de resolución. El proyecto se desarrolla utilizando React y TypeScript, aprovechando la potencia de estas tecnologías. Además, para la interacción de soltar y arrastrar (drag and drop), se utiliza la biblioteca DndKit, proporcionando una funcionalidad fluida.
 
 ![puzzle-home-screenshot!](./puzzle-home-screenshot.png)
 
